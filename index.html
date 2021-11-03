@@ -26,12 +26,12 @@
         <li class="list-group-item invisible mt-4 list-group-item-success option">You selected</li>
 
       </ul>
-      <div class="submitDiv d-grid gap-2 d-md-flex mt-3 col-11 justify-content-md-end"><input class="btn btn-primary col-2   border-dark text-center " id="button" type="submit" value='Hide destination'></input></div>
+      <div class=" d-grid gap-2 d-md-flex mt-3 col-11 justify-content-md-end"><input class="btn btn-primary col-2   border-dark text-center " id="button" type="submit" value='Hide Destination'></input></div>
 
       <script>
           const option= document.querySelectorAll('.option');
           const greenItem = document.querySelector('.list-group-item-success');
-          const submitDiv = document.querySelector('.sumitDiv');
+       
           const submit = document.querySelector('#button')
 
 
@@ -39,43 +39,44 @@
           {
             
               option.forEach(element=>
-              {
+            {
                   element.classList.toggle('invisible')
-                 
-                
-              
-                })
+            })
 
-                submit.value == 'Hide destination' ? 
-                submit.value ='Show Destination':
-                submit.value ='Hide Destination';
+            submit.value == 'Hide Destination'? 
+            submit.value ='Show Destination':
+            submit.value ='Hide Destination';
                    
-               
+            
           }
 
           option.forEach(element=>
           {
               element.onclick=(event)=>
-              { 
+             {  let once = true; 
                 greenItem.classList.remove('invisible');
 
-                greenItem.innerText = `You selectet ${event.target.innerText}`;
+                greenItem.innerText = `You selected ${event.target.innerText}`
                   
-                if(!event.target.classList.contains('active'))
+                if(!element.classList.contains('active') && once )
                 {
-                event.target.classList.add('active')
+                     
+                event.target.classList.toggle('active')
+                ;     
+                once = false;    
                 }
-                event.target.classList.remove('active');
-                
-                
-                    
-                
-                
-                  
-                  event.preventDefault(); 
-              }
-          })
-
+                else
+                {console.log( element.classList);
+                   element.classList.remove('active');   
+                    once = true;
+                }
+                console.log(once);
+              
+             }   
+               // event.preventDefault(); 
+        })
+     
+          
          
       </script>
       
