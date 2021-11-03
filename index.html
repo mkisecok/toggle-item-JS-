@@ -17,68 +17,18 @@
 
     <ul class="list-group mx-auto col-10 ">
         <li class="list-group-item mb-4 list-group-item-primary">Toogle the list of my favourite destinations</li>
-        <li class="list-group-item option active" aria-current="true">Rome</li>
+        <li class="list-group-item active option " aria-current="true">Rome</li>
         <li class="list-group-item option ">Athens</li>
         <li class="list-group-item option ">Bangkok</li>
         <li class="list-group-item option ">Amsterdam</li>
         <li class="list-group-item option ">Cala gonone</li>
 
-        <li class="list-group-item invisible mt-4 list-group-item-success option">You selected</li>
+        <li class="list-group-item invisible mt-4 list-group-item-success option"> You selected ...</li>
 
       </ul>
       <div class=" d-grid gap-2 d-md-flex mt-3 col-11 justify-content-md-end"><input class="btn btn-primary col-2   border-dark text-center " id="button" type="submit" value='Hide Destination'></input></div>
 
-      <script>
-          const option= document.querySelectorAll('.option');
-          const greenItem = document.querySelector('.list-group-item-success');
-       
-          const submit = document.querySelector('#button')
-
-
-          submit.onclick = (event)=>
-          {
-            
-              option.forEach(element=>
-            {
-                  element.classList.toggle('invisible')
-            })
-
-            submit.value == 'Hide Destination'? 
-            submit.value ='Show Destination':
-            submit.value ='Hide Destination';
-                   
-            
-          }
-
-          option.forEach(element=>
-          {
-              element.onclick=(event)=>
-             {  let once = true; 
-                greenItem.classList.remove('invisible');
-
-                greenItem.innerText = `You selected ${event.target.innerText}`
-                  
-                if(!element.classList.contains('active') && once )
-                {
-                     
-                event.target.classList.toggle('active')
-                ;     
-                once = false;    
-                }
-                else
-                {console.log( element.classList);
-                   element.classList.remove('active');   
-                    once = true;
-                }
-                console.log(once);
-              
-             }   
-               // event.preventDefault(); 
-        })
-     
-          
-         
-      </script>
+     <script src="index.js"></script>
       
 </body>
 </html>
