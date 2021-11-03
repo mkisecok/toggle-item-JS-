@@ -23,7 +23,7 @@
         <li class="list-group-item option ">Amsterdam</li>
         <li class="list-group-item option ">Cala gonone</li>
 
-        <li class="list-group-item invisible mt-4 list-group-item-success">You selected</li>
+        <li class="list-group-item invisible mt-4 list-group-item-success option">You selected</li>
 
       </ul>
       <div class="submitDiv d-grid gap-2 d-md-flex mt-3 col-11 justify-content-md-end"><input class="btn btn-primary col-2   border-dark text-center " id="button" type="submit" value='Hide destination'></input></div>
@@ -34,17 +34,6 @@
           const submitDiv = document.querySelector('.sumitDiv');
           const submit = document.querySelector('#button')
 
-          option.forEach(element=>
-          {
-              element.onclick=(event)=>
-              {  
-                event.target == element ?
-                event.target.classList.toggle('active'): 
-                element.classList.remove('active');  
-                  
-                  //event.preventDefault(); 
-              }
-          })
 
           submit.onclick = (event)=>
           {
@@ -53,12 +42,41 @@
               {
                   element.classList.toggle('invisible')
                  
-              })
+                
               
-               submit.value == 'Hide destination' ? 
-               submit.value ='Show Destination':
-                submit.value='Hide Destination';
+                })
+
+                submit.value == 'Hide destination' ? 
+                submit.value ='Show Destination':
+                submit.value ='Hide Destination';
+                   
+               
           }
+
+          option.forEach(element=>
+          {
+              element.onclick=(event)=>
+              { 
+                greenItem.classList.remove('invisible');
+
+                greenItem.innerText = `You selectet ${event.target.innerText}`;
+                  
+                if(!event.target.classList.contains('active'))
+                {
+                event.target.classList.add('active')
+                }
+                event.target.classList.remove('active');
+                
+                
+                    
+                
+                
+                  
+                  event.preventDefault(); 
+              }
+          })
+
+         
       </script>
       
 </body>
