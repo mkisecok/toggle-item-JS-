@@ -48,11 +48,16 @@
 
           submit.onclick = (event)=>
           {
-              submit.value='Show Destination';
+            
               option.forEach(element=>
               {
                   element.classList.toggle('invisible')
+                 
               })
+              
+               submit.value == 'Hide destination' ? 
+               submit.value ='Show Destination':
+                submit.value='Hide Destination';
           }
       </script>
       
