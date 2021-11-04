@@ -23,10 +23,11 @@ option.forEach(element=>
     element.onclick=(event)=>
         {  
             greenItem.classList.remove('invisible');
-    
-            greenItem.innerText = `You selected ${event.target.innerText}`
-                      
-            if(!element.classList.contains('active') )
+            if(element != greenItem)
+            {
+                greenItem.innerText = `You selected ${event.target.innerText}`
+            
+                if(!element.classList.contains('active') )
                 {
                         option.forEach(element=>
                     {
@@ -41,5 +42,9 @@ option.forEach(element=>
                         element.classList.remove('active'); 
                     })  
                 }
+            }
+           
+                      
+            
         }   
 })
