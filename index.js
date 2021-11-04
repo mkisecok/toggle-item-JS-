@@ -3,7 +3,9 @@ const option= document.querySelectorAll('.option');
 
 const greenItem = document.querySelector('.list-group-item-success');
 
-const submit = document.querySelector('#button')
+const submit = document.querySelector('#button');
+
+// Submit function
 
 submit.onclick = ()=>
 {
@@ -15,8 +17,10 @@ submit.onclick = ()=>
     submit.value == 'Hide Destination'? 
     submit.value ='Show Destination':
     submit.value ='Hide Destination';
-                   
+
 }
+
+// invisible function 
 
 option.forEach(element=>
     {
@@ -35,7 +39,7 @@ option.forEach(element=>
                     })      
                     event.target.classList.toggle('active')
                 }
-            else
+                else
                 { 
                     option.forEach(element=>
                     {
@@ -43,8 +47,5 @@ option.forEach(element=>
                     })  
                 }
             }
-           
-                      
-            
         }   
 })
